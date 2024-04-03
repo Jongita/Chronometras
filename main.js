@@ -19,13 +19,14 @@ stopDOM.addEventListener("click", () => {
     fixedTime.push(newTime);
     showTime();
 });
+console.log(fixedTime);
 
 const showTime = () => {
     timeList.innerHTML = "";
     fixedTime.forEach((t, i) => {
         const newFixedTime = document.createElement("li");
         newFixedTime.className = "list-group-item";
-        newFixedTime.textContent = `${i} ${fixedTime}`;
+        newFixedTime.textContent = `${i} ${t}`;
         timeList.appendChild(newFixedTime);
     })
 }
