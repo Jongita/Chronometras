@@ -26,7 +26,7 @@ const showTime = () => {
     fixedTime.forEach((t, i) => {
         const newFixedTime = document.createElement("li");
         newFixedTime.className = "list-group-item";
-        newFixedTime.textContent = `${i} ${t}`;
+        newFixedTime.textContent = `${i + 1} ${t}`;
         timeList.appendChild(newFixedTime);
     })
 }
@@ -34,6 +34,8 @@ const showTime = () => {
 resetDOM.addEventListener("click", () => {
     clearInterval(timerID);
     timeDOM.innerHTML = "00 : 00 : 00 : 000";
+    // istrinti li elementus
+
 });
 
 function displayTimer() {
