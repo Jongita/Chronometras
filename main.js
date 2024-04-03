@@ -2,6 +2,8 @@ const timeDOM = document.querySelector(".timerDisplay");
 const start = document.getElementById("startTimer");
 const stopDOM = document.getElementById("stopTimer")
 const resetDOM = document.getElementById("resetTimer")
+const fixedDOM = document.getElementById("fixTimer")
+const timeList = document.getElementById("timelist")
 
 let [milisec, sec, min, hours] = [0, 0, 0, 0];
 
@@ -10,9 +12,23 @@ start.addEventListener("click", () => {
     timerID = setInterval(displayTimer, 10);
 });
 
+let fixedTime = [];
 stopDOM.addEventListener("click", () => {
     clearInterval(timerID);
+    const newTime = timeDOM.textContent;
+    fixedTime.push(newTime);
+    showTime();
 });
+
+const showTime = () => {
+    timeList.innerHTML = "";
+    fixedTime.forEach((t, i) => {
+        const newFixedTime = document.createElement("li");
+        newFixedTime.className = "list-group-item";
+        newFixedTime.textContent = `${i} ${fixedTime}`;
+        timeList.appendChild(newFixedTime);
+    })
+}
 
 resetDOM.addEventListener("click", () => {
     clearInterval(timerID);
@@ -33,5 +49,6 @@ function displayTimer() {
             }
         }
     }
-    timeDOM.innerHTML = ` ${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(2, '0')}`;
+    timeDOM.innerHTML = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(2, '0')}`;
 }
+
