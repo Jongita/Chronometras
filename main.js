@@ -1,6 +1,8 @@
 const timeDOM = document.querySelector(".timerDisplay");
 const start = document.getElementById("startTimer");
 const stopDOM = document.getElementById("stopTimer")
+const fixDOM = document.getElementById("fixTimer")
+
 const resetDOM = document.getElementById("resetTimer")
 const fixedDOM = document.getElementById("fixTimer")
 const timeList = document.getElementById("timelist")
@@ -12,14 +14,17 @@ start.addEventListener("click", () => {
     timerID = setInterval(displayTimer, 10);
 });
 
-let fixedTime = [];
+
 stopDOM.addEventListener("click", () => {
     clearInterval(timerID);
+});
+
+let fixedTime = [];
+fixDOM.addEventListener("click", () => {
     const newTime = timeDOM.textContent;
     fixedTime.push(newTime);
     showTime();
 });
-console.log(fixedTime);
 
 const showTime = () => {
     timeList.innerHTML = "";
@@ -54,4 +59,6 @@ function displayTimer() {
     }
     timeDOM.innerHTML = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(2, '0')}`;
 }
+
+
 
