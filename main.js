@@ -29,7 +29,7 @@ fixDOM.addEventListener("click", () => {
 const showTime = () => {
     timeList.innerHTML = "";
     fixedTime.forEach((t, i) => {
-        const newFixedTime = document.createElement("li");
+        let newFixedTime = document.createElement("li");
         newFixedTime.className = "list-group-item";
         newFixedTime.textContent = `${i + 1} ${t}`;
         timeList.appendChild(newFixedTime);
@@ -40,7 +40,7 @@ resetDOM.addEventListener("click", () => {
     clearInterval(timerID);
     timeDOM.innerHTML = "00 : 00 : 00 : 000";
     // istrinti li elementus
-    fixedTime = [];
+    timeList.innerHTML = "";
 });
 
 function displayTimer() {
