@@ -40,7 +40,7 @@ resetDOM.addEventListener("click", () => {
     clearInterval(timerID);
     timeDOM.innerHTML = "00 : 00 : 00 : 000";
     // istrinti li elementus
-
+    fixedTime = [];
 });
 
 function displayTimer() {
