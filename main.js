@@ -19,12 +19,6 @@ stopDOM.addEventListener("click", () => {
     clearInterval(timerID);
 });
 
-let fixedTime = [];
-fixDOM.addEventListener("click", () => {
-    const newTime = timeDOM.textContent;
-    fixedTime.push(newTime);
-    showTime();
-});
 
 const showTime = () => {
     timeList.innerHTML = "";
@@ -36,11 +30,19 @@ const showTime = () => {
     })
 }
 
+let fixedTime = [];
+fixDOM.addEventListener("click", () => {
+    const newTime = timeDOM.textContent;
+    fixedTime.push(newTime);
+    showTime();
+});
+
 resetDOM.addEventListener("click", () => {
     clearInterval(timerID);
     timeDOM.innerHTML = "00 : 00 : 00 : 000";
     // istrinti li elementus
     timeList.innerHTML = "";
+    fixedTime = [];
 });
 
 function displayTimer() {
